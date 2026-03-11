@@ -48,6 +48,7 @@ export function Sidebar({
 
   return (
     <>
+      {/* Mobile overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -60,6 +61,14 @@ export function Sidebar({
         )}
       </AnimatePresence>
 
+      {/* Desktop layout spacer — collapses to 0 when sidebar is closed */}
+      <motion.div
+        className="hidden md:block flex-shrink-0 overflow-hidden"
+        animate={{ width: isOpen ? 288 : 0 }}
+        transition={{ type: "spring", damping: 28, stiffness: 280 }}
+      />
+
+      {/* The sidebar panel itself — always fixed so it slides in/out without affecting layout */}
       <motion.aside
         initial={false}
         animate={{
@@ -68,8 +77,7 @@ export function Sidebar({
         }}
         transition={{ type: "spring", damping: 28, stiffness: 280 }}
         className={cn(
-          "fixed left-0 top-0 h-full w-72 z-50 md:z-auto",
-          "md:relative md:translate-x-0 md:opacity-100",
+          "fixed left-0 top-0 h-full w-72 z-50",
           "flex flex-col bg-sidebar border-r border-sidebar-border",
         )}
       >
@@ -83,7 +91,7 @@ export function Sidebar({
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden text-muted-foreground hover:text-foreground"
+            className="text-muted-foreground hover:text-foreground"
             onClick={onClose}
           >
             <X className="h-4 w-4" />
@@ -94,7 +102,13 @@ export function Sidebar({
           <Button
             data-ocid="sidebar.new_chat.button"
             onClick={onNewChat}
-            className="w-full gap-2 gem-gradient new-chat-btn text-white border-0 shadow-gem"
+            className="w-full gap-2 new-chat-btn text-white border-0"
+            style={{
+              background:
+                "linear-gradient(135deg, oklch(0.72 0.22 192), oklch(0.65 0.2 255))",
+              boxShadow:
+                "0 0 0 1px oklch(0.72 0.21 192 / 0.5), 0 0 14px oklch(0.72 0.21 192 / 0.3), 0 2px 8px oklch(0.08 0.02 220 / 0.4)",
+            }}
           >
             <Plus className="h-4 w-4" />
             New chat
