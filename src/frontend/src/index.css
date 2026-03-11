@@ -1,0 +1,287 @@
+@font-face {
+  font-family: "Sora";
+  src: url("/assets/fonts/Sora.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode - electric teal + deep indigo / NovaNexus cosmic */
+    --background: 0.98 0.002 210;
+    --foreground: 0.15 0.02 220;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.02 220;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.02 220;
+    --primary: 0.58 0.19 195;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.94 0.012 205;
+    --secondary-foreground: 0.3 0.02 210;
+    --muted: 0.93 0.008 210;
+    --muted-foreground: 0.52 0.02 210;
+    --accent: 0.91 0.018 205;
+    --accent-foreground: 0.28 0.025 210;
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 1 0 0;
+    --border: 0.88 0.012 205;
+    --input: 0.88 0.012 205;
+    --ring: 0.58 0.19 195;
+    --radius: 0.75rem;
+    --sidebar: 0.97 0.004 210;
+    --sidebar-foreground: 0.15 0.02 220;
+    --sidebar-primary: 0.58 0.19 195;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.91 0.018 205;
+    --sidebar-accent-foreground: 0.28 0.025 210;
+    --sidebar-border: 0.88 0.012 205;
+    --sidebar-ring: 0.58 0.19 195;
+    --chart-1: 0.58 0.19 195;
+    --chart-2: 0.62 0.17 215;
+    --chart-3: 0.65 0.15 240;
+    --chart-4: 0.68 0.13 260;
+    --chart-5: 0.72 0.11 280;
+    --gem-gradient-start: oklch(0.62 0.2 195);
+    --gem-gradient-end: oklch(0.72 0.16 255);
+  }
+
+  .dark {
+    /* Dark mode - deep cosmic indigo with bright teal accents */
+    --background: 0.11 0.018 225;
+    --foreground: 0.93 0.01 215;
+    --card: 0.15 0.02 225;
+    --card-foreground: 0.93 0.01 215;
+    --popover: 0.13 0.018 225;
+    --popover-foreground: 0.93 0.01 215;
+    --primary: 0.72 0.19 192;
+    --primary-foreground: 0.08 0.02 220;
+    --secondary: 0.2 0.022 225;
+    --secondary-foreground: 0.85 0.01 215;
+    --muted: 0.18 0.018 225;
+    --muted-foreground: 0.58 0.022 215;
+    --accent: 0.21 0.028 220;
+    --accent-foreground: 0.9 0.01 215;
+    --destructive: 0.55 0.2 25;
+    --destructive-foreground: 1 0 0;
+    --border: 0.23 0.022 220;
+    --input: 0.21 0.02 220;
+    --ring: 0.72 0.19 192;
+    --sidebar: 0.09 0.015 225;
+    --sidebar-foreground: 0.88 0.01 215;
+    --sidebar-primary: 0.72 0.19 192;
+    --sidebar-primary-foreground: 0.08 0.02 220;
+    --sidebar-accent: 0.19 0.028 220;
+    --sidebar-accent-foreground: 0.88 0.01 215;
+    --sidebar-border: 0.2 0.018 222;
+    --sidebar-ring: 0.72 0.19 192;
+    --chart-1: 0.72 0.19 192;
+    --chart-2: 0.68 0.17 215;
+    --chart-3: 0.65 0.15 240;
+    --chart-4: 0.68 0.13 260;
+    --chart-5: 0.72 0.11 280;
+    --gem-gradient-start: oklch(0.72 0.21 192);
+    --gem-gradient-end: oklch(0.65 0.18 255);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sora;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .gem-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--gem-gradient-start),
+      var(--gem-gradient-end)
+    );
+  }
+
+  .gem-text-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--gem-gradient-start),
+      var(--gem-gradient-end)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* New Chat button — enhanced dark mode treatment */
+  .new-chat-btn {
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, opacity 0.2s ease, filter 0.25s ease;
+  }
+
+  /* Shimmer sweep overlay */
+  .new-chat-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 35%,
+      oklch(1 0 0 / 0.12) 50%,
+      transparent 65%
+    );
+    background-size: 250% 100%;
+    background-position: 150% center;
+    transition: background-position 0.6s ease;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  .new-chat-btn:hover::after {
+    background-position: -50% center;
+  }
+
+  /* Dark mode: glowing border ring */
+  .dark .new-chat-btn {
+    background: linear-gradient(
+      135deg,
+      oklch(0.76 0.22 192),
+      oklch(0.68 0.2 255)
+    );
+    box-shadow: 0 0 0 1px oklch(0.72 0.21 192 / 0.7), 0 0 12px
+      oklch(0.72 0.21 192 / 0.35), 0 2px 8px oklch(0.08 0.02 220 / 0.5);
+  }
+
+  /* Dark mode: stronger glow on hover */
+  .dark .new-chat-btn:hover {
+    opacity: 1;
+    box-shadow: 0 0 0 1px oklch(0.72 0.21 192 / 0.9), 0 0 20px
+      oklch(0.72 0.21 192 / 0.55), 0 0 40px oklch(0.72 0.21 192 / 0.2), 0 4px
+      16px oklch(0.08 0.02 220 / 0.6);
+  }
+
+  /* Dark mode: pressed feel */
+  .dark .new-chat-btn:active {
+    box-shadow: 0 0 0 1px oklch(0.72 0.21 192 / 0.8), 0 0 10px
+      oklch(0.72 0.21 192 / 0.4);
+  }
+
+  .typing-dot {
+    animation: typingBounce 1.4s infinite ease-in-out;
+  }
+
+  .typing-dot:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes typingBounce {
+    0%,
+    60%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+    30% {
+      transform: translateY(-6px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      oklch(0.72 0.19 192),
+      oklch(0.75 0.16 215),
+      oklch(0.78 0.13 240),
+      oklch(0.75 0.16 215),
+      oklch(0.72 0.19 192)
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 2s linear infinite;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.4s ease-out forwards;
+  }
+
+  @keyframes orb-float {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(20px, -15px) scale(1.05);
+    }
+    66% {
+      transform: translate(-10px, 10px) scale(0.97);
+    }
+  }
+
+  .orb-animate {
+    animation: orb-float 8s ease-in-out infinite;
+  }
+
+  .orb-animate-slow {
+    animation: orb-float 12s ease-in-out infinite reverse;
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
