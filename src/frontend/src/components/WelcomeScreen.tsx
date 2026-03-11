@@ -37,21 +37,6 @@ interface WelcomeScreenProps {
 export function WelcomeScreen({ userName, onPromptClick }: WelcomeScreenProps) {
   return (
     <div className="flex-1 flex flex-col items-center justify-center px-4 py-8 relative overflow-hidden">
-      <div
-        className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full opacity-10 orb-animate pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, oklch(0.62 0.2 195), transparent 70%)",
-        }}
-      />
-      <div
-        className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full opacity-8 orb-animate-slow pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, oklch(0.65 0.18 255), transparent 70%)",
-        }}
-      />
-
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -20,8 +20,8 @@
 
 @layer base {
   :root {
-    /* Light mode - clean blue/indigo Gemini-inspired palette */
-    --background: 0.98 0.002 240;
+    /* Light mode - neutral backgrounds, teal/indigo accents */
+    --background: 1 0 0;
     --foreground: 0.15 0.02 250;
     --card: 1 0 0;
     --card-foreground: 0.15 0.02 250;
@@ -29,25 +29,25 @@
     --popover-foreground: 0.15 0.02 250;
     --primary: 0.55 0.22 260;
     --primary-foreground: 1 0 0;
-    --secondary: 0.94 0.012 245;
+    --secondary: 0.96 0 0;
     --secondary-foreground: 0.3 0.02 250;
-    --muted: 0.93 0.008 245;
+    --muted: 0.95 0 0;
     --muted-foreground: 0.52 0.02 245;
-    --accent: 0.91 0.018 245;
+    --accent: 0.93 0 0;
     --accent-foreground: 0.28 0.025 250;
     --destructive: 0.55 0.22 25;
     --destructive-foreground: 1 0 0;
-    --border: 0.88 0.012 245;
-    --input: 0.88 0.012 245;
+    --border: 0.9 0 0;
+    --input: 0.9 0 0;
     --ring: 0.55 0.22 260;
     --radius: 0.75rem;
-    --sidebar: 0.97 0.004 245;
+    --sidebar: 0.97 0 0;
     --sidebar-foreground: 0.15 0.02 250;
     --sidebar-primary: 0.55 0.22 260;
     --sidebar-primary-foreground: 1 0 0;
     --sidebar-accent: 0.91 0.018 245;
     --sidebar-accent-foreground: 0.28 0.025 250;
-    --sidebar-border: 0.88 0.012 245;
+    --sidebar-border: 0.9 0 0;
     --sidebar-ring: 0.55 0.22 260;
     --chart-1: 0.55 0.22 260;
     --chart-2: 0.58 0.19 275;
@@ -59,31 +59,31 @@
   }
 
   .dark {
-    /* Dark mode - deep navy/slate with blue accents */
-    --background: 0.11 0.018 250;
+    /* Dark mode - neutral dark backgrounds, teal/indigo accents */
+    --background: 0.11 0 0;
     --foreground: 0.93 0.01 240;
-    --card: 0.15 0.02 250;
+    --card: 0.15 0 0;
     --card-foreground: 0.93 0.01 240;
-    --popover: 0.13 0.018 250;
+    --popover: 0.13 0 0;
     --popover-foreground: 0.93 0.01 240;
     --primary: 0.65 0.2 260;
     --primary-foreground: 0.08 0.02 250;
-    --secondary: 0.2 0.022 250;
+    --secondary: 0.2 0 0;
     --secondary-foreground: 0.85 0.01 240;
-    --muted: 0.18 0.018 250;
+    --muted: 0.18 0 0;
     --muted-foreground: 0.58 0.022 240;
-    --accent: 0.21 0.028 248;
+    --accent: 0.21 0 0;
     --accent-foreground: 0.9 0.01 240;
     --destructive: 0.55 0.2 25;
     --destructive-foreground: 1 0 0;
-    --border: 0.23 0.022 248;
-    --input: 0.21 0.02 248;
+    --border: 0.23 0 0;
+    --input: 0.21 0 0;
     --ring: 0.65 0.2 260;
-    --sidebar: 0.09 0.015 250;
+    --sidebar: 0.09 0 0;
     --sidebar-foreground: 0.88 0.01 240;
     --sidebar-primary: 0.65 0.2 260;
     --sidebar-primary-foreground: 0.08 0.02 250;
-    --sidebar-accent: 0.19 0.028 248;
+    --sidebar-accent: 0.19 0 0;
     --sidebar-accent-foreground: 0.88 0.01 240;
     --sidebar-border: 0.2 0.018 248;
     --sidebar-ring: 0.65 0.2 260;
